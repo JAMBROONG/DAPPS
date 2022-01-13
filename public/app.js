@@ -46,14 +46,8 @@ function Content() {
       const address = transactionsResults[i].address;
       const to_address = transactionsResults[i].to_address;
       const from_address = transactionsResults[i].from_address;
-
-      if (to_address == walletAddress && address == token) {
-        buyCounter++;
-      }
-
-      if (from_address == walletAddress && address == token) {
-        sellCounter++;
-      }
+      if (to_address == walletAddress && address == token) buyCounter++;
+      if (from_address == walletAddress && address == token) sellCounter++;
     }
 
     console.log(buyCounter);
