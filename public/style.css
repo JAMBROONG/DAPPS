@@ -1,0 +1,163 @@
+
+.container-fluid {
+    width: 93%;
+    margin-top: 100px;
+}
+.navbar-collapse {
+    margin-top: 5px;
+    padding-bottom: 10px;
+}
+
+.brand-text {
+    font-size: 20px;
+}
+
+.tombol {
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.685);
+    color: rgba(255, 255, 255, 0.76);
+    border-radius: 15px;
+}
+
+.tombol:hover {
+    border:2px solid white;
+    color: white;
+}
+
+.navbar .navbar-nav .nav-item {
+    margin-left: 3px;
+}
+.navbar-cyan {
+    padding-top: 0%;
+    padding-bottom:5px;
+    border-bottom: none;
+}
+
+.txt-value {
+    font-size: 20px;
+}
+
+.profile-user-img {
+    opacity: 9;
+    border: none;
+    width: 40px;
+}
+
+.small-box {
+    box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    height: 150px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+}
+
+
+.select2 {
+    width: 100%!important;
+}
+.info-panel {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    margin-top: -55px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    padding-top: 10px;
+}
+
+.info-panel h3{
+padding-bottom: 5px;
+}
+
+.teks-info {
+padding: 10px 20px 10px 10px;
+}
+
+.teks-info p {
+margin: auto;
+text-align: justify;
+font-size: 14px;
+}
+
+.table {
+    font-size: 12px;
+}
+
+.main-footer {
+    border-top: 7px solid #17a2b8;
+}
+
+footer .footer-link {
+    margin-top: -15px;
+}
+footer .footer-link:hover {
+    text-decoration: underline;
+}
+
+footer .title-info {
+    color: #17a2b8;
+    margin-bottom: 20px;
+}
+
+footer .footer-text {
+    margin-top: -20px;
+}
+
+.footer-bottom{
+    border-top: 1px solid #17a2b8;
+    padding-top: 5px;
+    height: 10px;
+}
+
+
+
+/* ===== Tampilan desktop ===== */
+
+@media (min-width: 992px) {
+
+    
+/* header utama*/
+
+    .container-fluid {
+        width: 93%;
+        margin-top: 100px;
+    }
+
+    .brand-text {
+        font-size: 30px;
+    }
+    .navbar-brand{
+        margin-left: 60px;
+    }
+    .navbar-no-expand{
+        margin-right: 55px;
+    }
+
+    .nav-content {
+        margin-top: -2px;
+    }
+
+    .tombol {
+        background-color: transparent;
+        border: 3px solid rgba(255, 255, 255, 0.685);
+        color: rgba(255, 255, 255, 0.76);
+        border-radius: 15px;
+        margin-bottom: -3px;
+        font-size: 20px;
+    }
+
+    .tombol:hover {
+        border:3px solid white;
+        color: white;
+    }
+
+    .profile-user-img {
+        opacity: 9;
+        border: none;
+        width: 50px;
+    }
+
+    .txt-value {
+        font-size: 25px;
+    }
+
+}
