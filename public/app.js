@@ -151,7 +151,7 @@ function App() {
 
       if (user) {
         const walletAddress = await user.get('ethAddress');
-        setWallet(walletAddress.slice(0, 6) + "..." + walletAddress.slice(walletAddress.length - 5, walletAddress.length - 1));
+        setWallet(walletAddress.slice(0, 5) + "..." + walletAddress.slice(walletAddress.length - 5, walletAddress.length - 1));
         setLogin(true);
       }
 
