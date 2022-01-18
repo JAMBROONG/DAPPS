@@ -12,6 +12,7 @@ function Content() {
   const [firstBuy, setFirstBuy] = React.useState('');
   const [sell, setSell] = React.useState(null);
   const [buy, setBuy] = React.useState(null);
+  const [point, setPoint] = React.useState('');
   React.useEffect(async function () {
     let user = Moralis.User.current();
     const walletAddress = user.get('ethAddress');
@@ -50,9 +51,13 @@ function Content() {
       if (from_address == walletAddress && address == token) sellCounter++;
     }
 
-    console.log(buyCounter);
     setBuy(buyCounter);
     setSell(sellCounter);
+    const currentDate = Date.now();
+    const daysRange = (currentDate - date) / (1000 * 3600 * 24);
+    const resultPoint = balance * 100 + daysRange * 1000 + buy * 3000 - sell * 9000;
+    setPoint(resultPoint);
+    console.log(daysRange);
   }, []);
 
   if (!sell && !buy) {
@@ -135,7 +140,11 @@ function Content() {
     className: "icon"
   }, /*#__PURE__*/React.createElement("i", {
     className: "fas fa-chart-pie"
-  })))))));
+  }))))), /*#__PURE__*/React.createElement("div", {
+    className: "row justify-content-center"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "col-lg-6 col-6 text-center"
+  }, /*#__PURE__*/React.createElement("h3", null, "Your Point is : ", point)))));
 }
 
 function App() {

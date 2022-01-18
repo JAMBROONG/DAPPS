@@ -9,6 +9,7 @@ function Content() {
     const [firstBuy, setFirstBuy] = React.useState('');
     const [sell, setSell] = React.useState(null);
     const [buy, setBuy] = React.useState(null);
+    const [point, setPoint] = React.useState('');
 
     React.useEffect(async function () {
         let user = Moralis.User.current();
@@ -16,7 +17,7 @@ function Content() {
 
         const options = { chain: 'bsc', address: walletAddress, token_addresses: token }
         const balances = await Moralis.Web3API.account.getTokenBalances(options);
-        setBalanace(balances[0].balance / 10**9);
+        setBalanace(balances[0].balance / 10 ** 9);
 
         const options2 = { chain: "bsc", address: walletAddress, order: "desc", from_block: "12057000" };
         const transactions = await Moralis.Web3API.account.getTokenTransfers(options2);
@@ -39,13 +40,19 @@ function Content() {
             const from_address = transactionsResults[i].from_address;
 
             if (to_address == walletAddress && address == token) buyCounter++;
-            
+
             if (from_address == walletAddress && address == token) sellCounter++;
-            
+
         }
-        console.log(buyCounter);
         setBuy(buyCounter);
         setSell(sellCounter);
+
+        const currentDate = Date.now();
+        const daysRange = (currentDate - date) / (1000 * 3600 * 24);
+        const resultPoint = (balance * 100) + (daysRange * 1000) + (buy * 3000) - (sell * 9000);
+
+        setPoint(resultPoint);
+        console.log(daysRange);
     }, []);
 
     if (!sell && !buy) {
@@ -88,7 +95,7 @@ function Content() {
                                 <h5>First Buy IDM</h5>
                             </div>
                             <div className="icon">
-                                <i className="text-bold" style={{marginTop: "-25px"}}>#1</i>
+                                <i className="text-bold" style={{ marginTop: "-25px" }}>#1</i>
                             </div>
                         </div>
                     </div>
@@ -113,6 +120,11 @@ function Content() {
                                 <i className="fas fa-chart-pie"></i>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col-lg-6 col-6 text-center">
+                        <h3>Your Point is : {point}</h3>
                     </div>
                 </div>
             </div>
